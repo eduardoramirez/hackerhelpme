@@ -2,14 +2,16 @@ var fb = new Firebase('https://hacknighthelpme.firebaseio.com');
 
 var users = [];
 
+var countOdd1 = 0;
+
+var countOdd = 0;
+
 function newHelp(name, location, field){
   if(name && location && field) {
     var newHelpRef = fb.push({'user': name, 'location':location, 'field': field});
     users.push({user: name, loc: newHelpRef});
   }
 };
-
-var countOdd = 0;
 
 function displayQueue(userinfo){
   var curRow = "row" + countOdd.toString();
@@ -30,8 +32,6 @@ function displayQueue(userinfo){
   }
 };
 
-var countOdd1 = 0;
-
 function displayQueueMentors(userinfo){
   var curRow = "row" + countOdd1.toString();
 
@@ -48,7 +48,7 @@ function displayQueueMentors(userinfo){
   $('#queueTable tbody').append('<tr id='+curRow+'>' + row + '</tr>');
 
   if(!countOdd1)
-    countOdd++;
+    countOdd1++;
   else{
     odds(curRow);
     countOdd1--;
