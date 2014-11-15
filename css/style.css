@@ -1,0 +1,24 @@
+.headline {
+  text-align: center;
+}
+
+#THEFORM {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.FORM-CHECK {
+  padding-left: 50px;
+}
+
+.button_offset {
+  margin-top: 50px;
+  width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+}
