@@ -29,8 +29,9 @@ function displayQueueMentors(userinfo){
     row = '<td>' + userinfo[i] + '</td>' + row;
   }
 
-  var del = "<div class='rem'> <button></button><input type='hidden' value='"+ userinfo[2]+"' /> </div>"
+  //var del = "<div class='rem'> <button></button><input type='hidden' value='"+ userinfo[2]+"' /> </div>"
 
+  var del = "hi";
   row = row + "<td>" + del + "</td>"; 
 
   $('#queueTable tbody').append('<tr>' + row + '</tr>');
@@ -49,4 +50,6 @@ alert("hello");
     }
   }
 };
+
+
 
