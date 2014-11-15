@@ -9,6 +9,8 @@ function newHelp(name, location, field){
   }
 };
 
+var countOdd = 0;
+
 function displayQueue(userinfo){
   var curRow = "row" + countOdd.toString();
 
@@ -28,10 +30,10 @@ function displayQueue(userinfo){
   }
 };
 
-var countOdd = 0;
+var countOdd1 = 0;
 
 function displayQueueMentors(userinfo){
-  var curRow = "row" + countOdd.toString();
+  var curRow = "row" + countOdd1.toString();
 
   var length = userinfo.length;
   var row = '';
@@ -45,11 +47,11 @@ function displayQueueMentors(userinfo){
 
   $('#queueTable tbody').append('<tr id='+curRow+'>' + row + '</tr>');
 
-  if(!countOdd)
+  if(!countOdd1)
     countOdd++;
   else{
     odds(curRow);
-    countOdd--;
+    countOdd1--;
   }
 };
 
