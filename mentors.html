@@ -54,18 +54,13 @@
 
         displayQueueMentors(userinfo);
       });
-
-    </script>
-    <script>
-    
-      $('.rem').click(function(){
-        alert("hi");
-            //var user = $('input:hidden:first', this).val();
-
-        //removeUser(user);
-      });
-
-
+      setTimeout( function() {
+      alert("done timeout");
+      $("div").click(function(){
+        if($(this).attr('class')=='rem')
+          alert("GOT EM BOYS");
+        //alert($(this).attr('class'));
+      })}, 1000);
     </script>
   </body>
 </html>
