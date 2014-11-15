@@ -92,3 +92,7 @@ td {
   background-color: #3E5873;
   cursor: pointer;
 }
+
+#submit {
+	margin-top: -40px;
+}
