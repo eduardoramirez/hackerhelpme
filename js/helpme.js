@@ -10,6 +10,7 @@ function newHelp(name, location, field){
 };
 
 function displayQueue(userinfo){
+  var curRow = "row" + countOdd.toString();
 
   var length = userinfo.length;
   var row = '';
@@ -17,11 +18,20 @@ function displayQueue(userinfo){
     row = '<td>' + userinfo[i] + '</td>' + row;
   }
 
-  $('#queueTable tbody').append('<tr>' + row + '</tr>');
+  $('#queueTable tbody').append('<tr id='+curRow+'>' + row + '</tr>');
+
+  if(!countOdd)
+    countOdd++;
+  else{
+    odds(curRow);
+    countOdd--;
+  }
 };
 
-function displayQueueMentors(userinfo){
+var countOdd = 0;
 
+function displayQueueMentors(userinfo){
+  var curRow = "row" + countOdd.toString();
 
   var length = userinfo.length;
   var row = '';
@@ -33,7 +43,14 @@ function displayQueueMentors(userinfo){
 
   row = row + "<td>" + del + "</td>"; 
 
-  $('#queueTable tbody').append('<tr>' + row + '</tr>');
+  $('#queueTable tbody').append('<tr id='+curRow+'>' + row + '</tr>');
+
+  if(!countOdd)
+    countOdd++;
+  else{
+    odds(curRow);
+    countOdd--;
+  }
 };
 
 function removeUser(user) {
@@ -48,5 +65,7 @@ function removeUser(user) {
   });
 };
 
-
+function odds(row) {
+  $('#queueTable').find('#'+row).css("background-color", "#ecf0f1");
+};
 

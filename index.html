@@ -103,7 +103,7 @@
 
         var field = '';
 
-        for(var i = 0; i < 6; i++)
+        for(var i = 0; i < 7; i++)
         {
           if($('#checkbox'+i.toString()).is(':checked')){
             field += $('#checkbox'+i.toString()).val() + ' ';
@@ -111,7 +111,6 @@
         }  
         newHelp(name, location, field);
       });
-
       
       fb.on('child_added', function(help){
         var userinfo = [];
@@ -121,6 +120,15 @@
 
         displayQueue(userinfo);
       });
+
+       $(window).resize(function() {
+          if ($(window).width() < 480) {
+            $(".menu").hide();
+          }
+          else{
+            $(".menu").show();
+          }
+       });
 
     </script>
   </body>
