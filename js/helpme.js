@@ -20,8 +20,26 @@ function displayQueue(userinfo){
   $('#queueTable tbody').append('<tr>' + row + '</tr>');
 };
 
+function displayQueueMentors(userinfo){
+
+
+  var length = userinfo.length;
+  var row = '';
+  for(var i = 0; i < length; i++){
+    row = '<td>' + userinfo[i] + '</td>' + row;
+  }
+
+  var del = "<div class='rem'> <button></button><input type='hidden' value='"+ userinfo[2]+"' /> </div>"
+
+  row = row + "<td>" + del + "</td>"; 
+
+  $('#queueTable tbody').append('<tr>' + row + '</tr>');
+};
+
 
 function removeUser(user){
+alert("hello");
+
   var length = user.length;
   for(var i = 0;  i < length; i++) {
     if(u[i].user = user) {
