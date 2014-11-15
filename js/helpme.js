@@ -28,27 +28,24 @@ function displayQueueMentors(userinfo){
   for(var i = 0; i < length; i++){
     row = '<td>' + userinfo[i] + '</td>' + row;
   }
+  
+  var del = "<div class='rem'>Remove <input type='hidden' value='"+ userinfo[2]+"' /> </div>"
 
-  //var del = "<div class='rem'> <button></button><input type='hidden' value='"+ userinfo[2]+"' /> </div>"
-
-  var del = "hi";
   row = row + "<td>" + del + "</td>"; 
 
   $('#queueTable tbody').append('<tr>' + row + '</tr>');
 };
 
-
-function removeUser(user){
-alert("hello");
-
-  var length = user.length;
-  for(var i = 0;  i < length; i++) {
-    if(u[i].user = user) {
-      u[i].loc.remove();
-      users.splice(i, 1);
-      break;
+function removeUser(user) {
+  fb.on('child_added', function(help){
+    if(help.forEach(function(useritem){
+        if(useritem.val() == user) {
+          return true;
+        }
+      })){
+      help.ref().remove();
     }
-  }
+  });
 };
 
 

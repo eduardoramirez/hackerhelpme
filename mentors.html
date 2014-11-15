@@ -27,6 +27,7 @@
     <h3 class="qH3">Help Queue</h3>
     <div class="mentor">
       <table id="queueTable">
+        <tbody>
         <tr class="tableHeader">
           <td>Name</td>
           <td>Room</td>
@@ -52,6 +53,14 @@
 
         displayQueueMentors(userinfo);
       });
+
+      setTimeout( function() {
+      $("div").click(function(){
+        if($(this).attr('class')=='rem'){
+          var n = $(this).find("input").val();
+          removeUser(n);
+        }
+      })}, 1000);
 
     </script>
   </body>
