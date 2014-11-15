@@ -112,3 +112,7 @@ td {
   cursor: pointer;
   height: 50px;
 }
+
+#row1 {
+  background-color: #ecf0f1;
+}
