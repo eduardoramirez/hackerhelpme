@@ -72,13 +72,11 @@
       <tr class="tableHeader">
         <td>Name</td>
         <td>Room</td>
-        <td>Name</td>
+        <td>Field</td>
       </tr>
-      <tr>
-        <td>Eduardo</td>
-        <td>Costa Verde</td>
-        <td>Emergency</td>
-      </tr>
+      <tbody>
+
+      </tbody>
     </table>
 
     <br/><br/>
@@ -88,5 +86,34 @@
     <script src="dist/js/vendor/jquery.min.js"></script>
     <script src="dist/js/flat-ui.min.js"></script>
     <script src="docs/assets/js/application.js"></script>
+    <script>
+
+      $('#submit').click(function(){
+        alert("helloww");
+        var name = $('#name').val();
+        var location = $('#location').val();
+
+        var field = '';
+
+        for(var i = 0; i < 6; i++)
+        {
+          if($('#checkbox'+i.toString()).is(':checked')){
+            field += $('#checkbox'+i.toString()).val() + ' ';
+          }
+        }  
+        newHelp(name, location, field);
+      });
+
+      
+      fb.on('child_added', function(help){
+        var userinfo = [];
+        help.forEach(function(useritem){
+          userinfo.push(useritem.val());
+        });
+        alert("hi");
+        displayQueue(userinfo);
+      });
+
+    </script>
   </body>
 </html>

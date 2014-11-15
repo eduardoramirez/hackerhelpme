@@ -4,8 +4,6 @@ var users = [];
 
 
 function newHelp(name, location, field){
-
-  alert("new");
   if(name && location && field) {
     var newHelpRef = fb.push({'user': name, 'location':location, 'field': field});
     users.push({user: name, loc: newHelpRef});
@@ -14,29 +12,17 @@ function newHelp(name, location, field){
 
 
 function getEveryone(){
-  alert("hellosdfshw");
-  var userinfo = [];
-  fb.on('child_added', function(help){
-    userinfo = [];
-    help.forEach(function(useritem){
-      userinfo.push(useritem.val());
-    });
- alert("hfshw");
-    displayQueue(userinfo);
-  });
 };
 
 function displayQueue(userinfo){
 
-        alert("noooe");
-  var row = '<tr>';
-  for(var infoitem in userinfo){
-    row += '<td>' + text + '</td>';
+  var length = userinfo.length;
+  var row = '';
+  for(var i = 0; i < length; i++){
+    row = '<td>' + userinfo[i] + '</td>' + row;
   }
 
-  row = '</tr>';
-
-  $('#queueTable tbody').append(row);
+  $('#queueTable tbody').append('<tr>' + row + '</tr>');
 };
 
 
