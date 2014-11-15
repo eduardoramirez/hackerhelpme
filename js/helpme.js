@@ -68,6 +68,6 @@ function removeUser(user) {
 };
 
 function odds(row) {
-  $('#queueTable').find('#'+row).css("background-color", "#ecf0f1");
+  $('#'+row).css("background-color", "#ecf0f1");
 };
 
