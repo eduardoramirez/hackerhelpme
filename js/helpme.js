@@ -48,10 +48,18 @@ function displayQueue(userinfo){
 
   row = '</tr>';
 
-  $('#quotesTable tbody').append(row);
+  $('#queueTable tbody').append(row);
 };
 
 
 function removeUser(user){
-
+  var length = user.length;
+  for(var i = 0;  i < length; i++) {
+    if(u[i].user = user) {
+      u[i].loc.remove();
+      users.splice(i, 1);
+      break;
+    }
+  }
 };
+
