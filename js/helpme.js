@@ -2,16 +2,11 @@ var fb = new Firebase('https://hacknighthelpme.firebaseio.com');
 
 var users = [];
 
-
 function newHelp(name, location, field){
   if(name && location && field) {
     var newHelpRef = fb.push({'user': name, 'location':location, 'field': field});
     users.push({user: name, loc: newHelpRef});
   }
-};
-
-
-function getEveryone(){
 };
 
 function displayQueue(userinfo){

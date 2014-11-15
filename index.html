@@ -74,9 +74,6 @@
         <td>Room</td>
         <td>Field</td>
       </tr>
-      <tbody>
-
-      </tbody>
     </table>
 
     <br/><br/>
@@ -88,8 +85,19 @@
     <script src="docs/assets/js/application.js"></script>
     <script>
 
+      $('#2ask').click(function() {
+        $("html, body").animate({ scrollTop: 0 }, "fast");
+        return false;
+      });
+
+      $('#2queue').click(function() {
+         $('html,body').animate({
+          scrollTop: $("#queueTable").offset().top},
+          "fast");
+      });
+
+
       $('#submit').click(function(){
-        alert("helloww");
         var name = $('#name').val();
         var location = $('#location').val();
 
@@ -110,7 +118,7 @@
         help.forEach(function(useritem){
           userinfo.push(useritem.val());
         });
-        alert("hi");
+
         displayQueue(userinfo);
       });
 
