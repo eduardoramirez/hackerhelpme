@@ -96,3 +96,9 @@ td {
 #submit {
 	margin-top: -40px;
 }
+
+.mentor {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
