@@ -54,6 +54,15 @@
         displayQueueMentors(userinfo);
       });
 
+      fb.on('child_removed', function(help){
+        var userinfo = [];
+        help.forEach(function(useritem){
+          userinfo.push(useritem.val());
+        });
+
+        displayQueueMentors(userinfo);
+      });
+
       setTimeout( function() {
       $("div").click(function(){
         if($(this).attr('class')=='rem'){
