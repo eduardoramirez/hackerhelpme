@@ -63,3 +63,8 @@ function removeUser(user) {
     }
   });
 };
+
+function odds(row) {
+  $('#'+row).css("background-color", "#ecf0f1");
+};
+
