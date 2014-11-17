@@ -55,12 +55,7 @@
       });
 
       fb.on('child_removed', function(help){
-        var userinfo = [];
-        help.forEach(function(useritem){
-          userinfo.push(useritem.val());
-        });
-
-        displayQueueMentors(userinfo);
+        location.reload();
       });
 
       setTimeout( function() {
@@ -68,7 +63,6 @@
         if($(this).attr('class')=='rem'){
           var n = $(this).find("input").val();
           removeUser(n);
-          location.reload();
         }
       })}, 1000);
 
