@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="js/helpme.js"></script>
+    <script src="js/responsive.js"></script>
     <title>Hack Night Help Me</title>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,11 +32,14 @@
     <h1 class="headline">Hack Night: Help Me</h1>
     <div class="space_filler_lol"></div>
     <form id="THEFORM">
-      <div class="form-group">
+      <div id="name-div" class="form-group">
         <input id="name" class="form-control" type="text" placeholder="Your Name" name="name"></input>
+      </div>
+      <div id="location-div" class="form-group">
         <input id="location" class="form-control" type="text" placeholder="Room Location" name="room"></input>
+      </div>
         <div class="row">
-        <h5 class="headline">What field do you need help on?</h5>
+        <h5 class="headline field_help">What field do you need help on?</h5>
         <div class="col-xs-12 FORMCHECK">
           <label class="checkbox" for="checkbox1">
             <input type="checkbox" value="Java" name="checkbox1" id="checkbox1" data-toggle="checkbox">
@@ -85,6 +89,12 @@
     <script src="docs/assets/js/application.js"></script>
     <script>
 
+      var uri = window.location.toString();
+      if (uri.indexOf("?") > 0) {
+          var clean_uri = uri.substring(0, uri.indexOf("?"));
+          window.history.replaceState({}, document.title, clean_uri);
+      }
+
       $('#2ask').click(function() {
         $("html, body").animate({ scrollTop: 0 }, "fast");
         return false;
@@ -98,9 +108,9 @@
 
 
       $('#submit').click(function(){
+        var success_toggle = true;
         var name = $('#name').val();
         var location = $('#location').val();
-
         var field = '';
 
         for(var i = 0; i < 7; i++)
@@ -108,8 +118,42 @@
           if($('#checkbox'+i.toString()).is(':checked')){
             field += $('#checkbox'+i.toString()).val() + ' ';
           }
-        }  
+        }
+
+        if(name == null || name == '') {
+          $('#name-div').removeClass("has-success");
+          $('#name-div').addClass("has-error");
+          success_toggle = false;
+        }
+        else {
+          $('#name-div').removeClass("has-error");
+          $('#name-div').addClass("has-success");
+        }
+
+        if(location == null || location == '') {
+          $('#location-div').removeClass("has-success");
+          $('#location-div').addClass("has-error");
+          success_toggle = false;
+        }
+        else {
+          $('#location-div').removeClass("has-error");
+          $('#location-div').addClass("has-success");
+        }
+
+        if(field == null || field == '') {
+          $('.field_help').css('color','#c0392b');
+          success_toggle = false;
+        }
+        else {
+          $('.field_help').css('color','#34495e');
+        }
+
+        if(!success_toggle){
+          return false;
+        }
+
         newHelp(name, location, field);
+        var uri = window.location.toString();
       });
       
       fb.on('child_added', function(help){
