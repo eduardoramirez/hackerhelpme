@@ -29,6 +29,18 @@ function displayQueue(userinfo){
   }
 };
 
+function updateQueue(){
+
+  fb.on('value', function(help){
+    var userinfo = [];
+    help.forEach(function(useritem){
+      userinfo.push(useritem.val());
+    });
+
+    displayQueue(userinfo);
+  });
+};
+
 function displayQueueMentors(userinfo){
   var curRow = "row" + countOdd1.toString();
 
