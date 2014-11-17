@@ -165,19 +165,14 @@
         displayQueue(userinfo);
       });
 
-      fb.on('child_removed', function(help){
+      /*fb.on('child_removed', function(help){
 
         $(document).ready(function() {
            $("#queueTable").find("tr:gt(0)").remove();
         });
-
-        var userinfo = [];
-        help.forEach(function(useritem){
-          userinfo.push(useritem.val());
-        });
-
-        displayQueue(userinfo);
-      });
+        
+        updateQueue();
+      }); */
 
        $(window).resize(function() {
           if ($(window).width() < 480) {
@@ -189,5 +184,6 @@
        });
 
     </script>
+    <script sr="js/analyticstracking.js"></script>
   </body>
 </html>
