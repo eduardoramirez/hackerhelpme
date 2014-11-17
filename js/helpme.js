@@ -6,7 +6,7 @@ var countOdd = 0;
 
 function newHelp(name, location, field){
   if(name && location && field) {
-    var newHelpRef = fb.push({'user': name, 'location':location, 'field': field});
+    var newHelpRef = fb.push({'user': name, 'location':location, 'field': field});  
   }
 };
 
@@ -38,7 +38,9 @@ function displayQueueMentors(userinfo){
     row = '<td>' + userinfo[i] + '</td>' + row;
   }
   
-  var del = "<div class='rem'>Remove <input type='hidden' value='"+ userinfo[2]+"' /> </div>"
+  var uname = userinfo[2].replace(/(["])/g, "").replace(/(['])/g, "");
+
+  var del = "<div class='rem'>Remove <input type='hidden' value='"+ uname +"' /> </div>";
 
   row = row + "<td>" + del + "</td>"; 
 
@@ -55,7 +57,8 @@ function displayQueueMentors(userinfo){
 function removeUser(user) {
   fb.on('child_added', function(help){
     if(help.forEach(function(useritem){
-        if(useritem.val() == user) {
+        var userDB = useritem.val().replace(/(["])/g, "").replace(/(['])/g, "");
+        if(userDB == user) {
           return true;
         }
       })){

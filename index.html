@@ -121,6 +121,20 @@
         displayQueue(userinfo);
       });
 
+      fb.on('child_removed', function(help){
+
+        $(document).ready(function() {
+           $("#queueTable").find("tr:gt(0)").remove();
+        });
+
+        var userinfo = [];
+        help.forEach(function(useritem){
+          userinfo.push(useritem.val());
+        });
+
+        displayQueue(userinfo);
+      });
+
        $(window).resize(function() {
           if ($(window).width() < 480) {
             $(".menu").hide();
